@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- xsi:noNamespaceSchemaLocation enlaza el XML con el XSD externo -->
+<persona dni="12345678A"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="persona.xsd">
+
+  <!-- nom es texto obligatorio -->
+  <nom>Josep</nom>
+
+  <!-- edat debe ser un número entero, no texto -->
+  <edat>22</edat>
+
+  <!-- ciutat es texto obligatorio -->
+  <ciutat>Barcelona</ciutat>
+
+  <!-- aficio es opcional y repetible (minOccurs="0" maxOccurs="unbounded")
+       puede aparecer cero, una o muchas veces -->
+  <aficio>Fotografia</aficio>
+  <aficio>Música</aficio>
+
+  <!-- nivell solo puede ser baix, mitja o alt -->
+  <nivell>mitja</nivell>
+
+</persona>
