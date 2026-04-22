@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- SYSTEM indica la ruta del archivo .dtd externo -->
+<!DOCTYPE alumne SYSTEM "alumne.dtd">
+
+<!-- Atributos obligatorios id y tipus en el elemento raíz.
+     tipus debe ser "presencial" o "distancia" -->
+<alumne id="A01" tipus="presencial">
+
+  <!-- nom y cognom son obligatorios -->
+  <nom>Josep</nom>
+  <cognom>Artís</cognom>
+
+  <!-- telefon y email son opcionales, aquí los incluimos los dos
+       pero podrían no aparecer o aparecer solo uno -->
+  <telefon>612345678</telefon>
+  <email>josep@gmail.com</email>
+
+  <!-- modul debe aparecer UNO O MÁS veces -->
+  <modul>Llenguatge de marques</modul>
+  <modul>Bases de dades</modul>
+  <modul>Programació</modul>
+
+</alumne>

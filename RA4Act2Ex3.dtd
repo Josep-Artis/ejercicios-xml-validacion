@@ -1,0 +1,27 @@
+<!-- Elemento raíz. + significa UNA O MÁS activitat -->
+<!ELEMENT activitats (activitat+)>
+
+<!-- Secuencia obligatoria de hijos de activitat.
+     ? significa CERO O UNO (opcional).
+     + significa UNO O MÁS (obligatorio y repetible).
+     La | dentro de lloc significa alternativa: interior O exterior -->
+<!ELEMENT activitat (nom, monitor, horari?, participant+, lloc)>
+
+<!-- Todos estos elementos contienen texto -->
+<!ELEMENT nom (#PCDATA)>
+<!ELEMENT monitor (#PCDATA)>
+<!ELEMENT horari (#PCDATA)>
+<!ELEMENT participant (#PCDATA)>
+
+<!-- lloc solo puede contener interior o exterior.
+     La | significa OR, es una alternativa entre dos elementos -->
+<!ELEMENT lloc (interior | exterior)>
+<!ELEMENT interior (#PCDATA)>
+<!ELEMENT exterior (#PCDATA)>
+
+<!-- ATTLIST declara dos atributos obligatorios para activitat:
+     - codi: texto libre, obligatorio
+     - tipus: solo puede valer "esportiva" o "artistica", obligatorio -->
+<!ATTLIST activitat
+  codi CDATA #REQUIRED
+  tipus (esportiva | artistica) #REQUIRED>

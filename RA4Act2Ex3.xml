@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- SYSTEM indica la ruta del archivo .dtd externo -->
+<!DOCTYPE activitats SYSTEM "activitats.dtd">
+
+<activitats>
+
+  <!-- Primera activitat: incluye horari opcional y varios participants -->
+  <activitat codi="A01" tipus="esportiva">
+    <nom>Futbol</nom>
+    <monitor>Joan Garcia</monitor>
+    <!-- horari es opcional, aquí lo incluimos -->
+    <horari>Dilluns 17:00</horari>
+    <!-- participant debe aparecer UNO O MÁS veces -->
+    <participant>Anna</participant>
+    <participant>Pere</participant>
+    <participant>Marta</participant>
+    <!-- lloc va siempre al final y contiene interior o exterior -->
+    <lloc><exterior/></lloc>
+  </activitat>
+
+  <!-- Segunda activitat: sin horari para demostrar que es opcional -->
+  <activitat codi="A02" tipus="artistica">
+    <nom>Pintura</nom>
+    <monitor>Maria López</monitor>
+    <!-- horari no aparece para demostrar que es opcional -->
+    <participant>Carles</participant>
+    <participant>Laia</participant>
+    <lloc><interior/></lloc>
+  </activitat>
+
+</activitats>

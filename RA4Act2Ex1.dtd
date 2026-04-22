@@ -1,0 +1,27 @@
+<!-- Elemento raíz. El + significa que debe contener UNO O MÁS llibre -->
+<!ELEMENT biblioteca (llibre+)>
+
+<!-- Cada llibre tiene estos hijos EN ESTE ORDEN exacto.
+     La coma entre elementos significa secuencia obligatoria.
+     El * en paraulaClau significa CERO O MÁS (es opcional y repetible) -->
+<!ELEMENT llibre (titol, autor, genere, paraulaClau*, any)>
+
+<!-- Todos estos elementos contienen simplemente texto.
+     #PCDATA es el tipo de dato para texto en DTD -->
+<!ELEMENT titol (#PCDATA)>
+<!ELEMENT autor (#PCDATA)>
+<!ELEMENT genere (#PCDATA)>
+
+<!-- paraulaClau es texto. La repetición (*) se define
+     cuando se usa dentro de llibre, no aquí -->
+<!ELEMENT paraulaClau (#PCDATA)>
+
+<!-- En DTD no hay tipo numérico, el año también es texto (#PCDATA) -->
+<!ELEMENT any (#PCDATA)>
+
+<!-- ATTLIST declara atributos de un elemento.
+     - llibre es el elemento al que pertenece el atributo
+     - isbn es el nombre del atributo
+     - CDATA significa que el valor es texto libre
+     - #REQUIRED significa que es OBLIGATORIO, no puede faltar -->
+<!ATTLIST llibre isbn CDATA #REQUIRED>
