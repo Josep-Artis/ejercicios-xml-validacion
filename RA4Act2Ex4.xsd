@@ -1,0 +1,61 @@
+?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <!-- Elemento raíz videojoc. Es complexType porque tiene hijos y atributo -->
+  <xs:element name="videojoc">
+    <xs:complexType>
+      <xs:sequence>
+
+        <!-- nom es simplemente texto -->
+        <xs:element name="nom" type="xs:string"/>
+
+        <!-- plataforma solo puede ser uno de estos cuatro valores -->
+        <xs:element name="plataforma">
+          <xs:simpleType>
+            <xs:restriction base="xs:string">
+              <xs:enumeration value="PC"/>
+              <xs:enumeration value="PlayStation"/>
+              <xs:enumeration value="Switch"/>
+              <xs:enumeration value="Xbox"/>
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:element>
+
+        <!-- pegi es número entero -->
+        <xs:element name="pegi" type="xs:integer"/>
+
+        <!-- multijugador es booleano, solo acepta true o false -->
+        <xs:element name="multijugador" type="xs:boolean"/>
+
+        <!-- genere solo puede ser uno de estos cuatro valores -->
+        <xs:element name="genere">
+          <xs:simpleType>
+            <xs:restriction base="xs:string">
+              <xs:enumeration value="aventura"/>
+              <xs:enumeration value="esports"/>
+              <xs:enumeration value="estrategia"/>
+              <xs:enumeration value="sandbox"/>
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:element>
+
+        <!-- mode es OPCIONAL gracias a minOccurs="0"
+             Solo puede ser online u offline -->
+        <xs:element name="mode" minOccurs="0">
+          <xs:simpleType>
+            <xs:restriction base="xs:string">
+              <xs:enumeration value="online"/>
+              <xs:enumeration value="offline"/>
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:element>
+
+      </xs:sequence>
+
+      <!-- Atributo obligatorio. use="required" significa OBLIGATORIO -->
+      <xs:attribute name="id" type="xs:string" use="required"/>
+
+    </xs:complexType>
+  </xs:element>
+
+</xs:schema>
