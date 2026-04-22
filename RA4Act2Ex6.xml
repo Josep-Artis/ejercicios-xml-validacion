@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- xsi:noNamespaceSchemaLocation enlaza el XML con el XSD externo -->
+<botiga
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="botiga.xsd">
+
+  <!-- Primer producto: incluye marca y varias etiquetas -->
+  <producte id="P01" estat="nou">
+    <nom>Ordinador portàtil</nom>
+    <!-- preu es decimal, se usa punto como separador -->
+    <preu>999.99</preu>
+    <stock>15</stock>
+    <categoria>informatica</categoria>
+    <!-- marca es opcional, aquí la incluimos -->
+    <marca>Lenovo</marca>
+    <!-- etiqueta puede aparecer cero o más veces -->
+    <etiqueta>oferta</etiqueta>
+    <etiqueta>nou</etiqueta>
+  </producte>
+
+  <!-- Segundo producto: sin marca para demostrar que es opcional -->
+  <producte id="P02" estat="oferta">
+    <nom>Harry Potter</nom>
+    <preu>12.50</preu>
+    <stock>30</stock>
+    <categoria>llibres</categoria>
+    <!-- marca no aparece para demostrar que es opcional -->
+    <etiqueta>bestseller</etiqueta>
+  </producte>
+
+</botiga>

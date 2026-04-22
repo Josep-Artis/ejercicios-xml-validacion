@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <!-- Elemento raíz botiga. Contiene uno o más producte -->
+  <xs:element name="botiga">
+    <xs:complexType>
+      <xs:sequence>
+
+        <!-- producte debe aparecer UNO O MÁS veces
+             maxOccurs="unbounded" significa sin límite -->
+        <xs:element name="producte" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+
+              <!-- nom es simplemente texto -->
+              <xs:element name="nom" type="xs:string"/>
+
+              <!-- preu es número decimal -->
+              <xs:element name="preu" type="xs:decimal"/>
+
+              <!-- stock es número entero -->
+              <xs:element name="stock" type="xs:integer"/>
+
+              <!-- categoria solo puede ser uno de estos tres valores -->
+              <xs:element name="categoria">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:enumeration value="informatica"/>
+                    <xs:enumeration value="llibres"/>
+                    <xs:enumeration value="joguines"/>
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+
+              <!-- marca es OPCIONAL gracias a minOccurs="0" -->
+              <xs:element name="marca" type="xs:string" minOccurs="0"/>
+
+              <!-- etiqueta es OPCIONAL Y REPETIBLE
+                   minOccurs="0" significa cero o más
+                   maxOccurs="unbounded" significa sin límite -->
+              <xs:element name="etiqueta" type="xs:string"
+                minOccurs="0" maxOccurs="unbounded"/>
+
+            </xs:sequence>
+
+            <!-- Atributo id obligatorio -->
+            <xs:attribute name="id" type="xs:string" use="required"/>
+
+            <!-- Atributo estat obligatorio, solo puede ser nou, oferta o esgotat -->
+            <xs:attribute name="estat" use="required">
+              <xs:simpleType>
+                <xs:restriction base="xs:string">
+                  <xs:enumeration value="nou"/>
+                  <xs:enumeration value="oferta"/>
+                  <xs:enumeration value="esgotat"/>
+                </xs:restriction>
+              </xs:simpleType>
+            </xs:attribute>
+
+          </xs:complexType>
+        </xs:element>
+
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+</xs:schema>
